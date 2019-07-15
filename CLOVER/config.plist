@@ -24,13 +24,7 @@
 				<true/>
 				<key>FixRTC</key>
 				<true/>
-				<key>FixSBUS</key>
-				<true/>
 				<key>FixTMR</key>
-				<true/>
-				<key>FixWAK</key>
-				<false/>
-				<key>FixShutdown</key>
 				<true/>
 			</dict>
 			<key>Patches</key>
