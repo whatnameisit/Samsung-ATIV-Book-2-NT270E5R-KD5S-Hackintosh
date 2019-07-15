@@ -11,8 +11,6 @@ macOS 10.14.3
 2. HDMI with sound and VGA (recognized as DP by macOS) work
 ## Things to consider
 1. Menubar displays correct battery status even with original _PTS and _WAK dropped with SSDT-PTSWAK.aml. There are larger than 8-bit FieldUnitObjects in _PTS and _WAK which seem to be not active at all as the laptop does not not have any dGPU. Empty _PTS and _WAK methods may be tried.
-2. Drivers and kexts are outdated. Will be updated shortly
-3. Proper SMBIOS for Haswell. Everything seems OK though
 ## Acknowledgment
 Apple for macOS
 
