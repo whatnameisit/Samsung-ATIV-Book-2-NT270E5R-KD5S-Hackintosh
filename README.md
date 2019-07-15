@@ -3,8 +3,8 @@ macOS 10.14.3
 ## Issues
 1. Too much noise picked up when Siri is active such that the A.I. sometimes thinks I'm still speaking when I'm not
 2. Atheros WiFi/BT not suppored by Apple anymore
-  - EMlyDinEsH is not working on BTFirmware anymore so Handoff and Air Drop are not working properly
-  - WiFi is very slow as AR9565 was never supported OOB
+    - EMlyDinEsH is not working on BTFirmware anymore so Handoff and Air Drop are not working properly
+    - WiFi is very slow as AR9565 was never supported OOB
 ## Working
 1. Things not listed in Issues
 2. HDMI with sound and VGA (recognized as DP by macOS) work
