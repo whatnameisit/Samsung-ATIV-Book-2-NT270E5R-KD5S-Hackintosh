@@ -10,8 +10,7 @@ macOS 10.14.3
 1. Things that are not listed in Issues
 2. HDMI with sound and VGA (recognized as DP by macOS) work
 ## Things to consider
-1. Menubar displays correct battery status even with original _PTS and _WAK dropped with SSDT-PTSWAK.aml. There are larger than 8-bit FieldUnitObjects in _PTS and _WAK which seem to be not active at all as the laptop does not not have any dGPU. Empty _PTS and _WAK methods may be tried.
-2. Updated Clover and kexts not tested, but will probably work
+1. None
 ## Acknowledgment
 Apple for macOS
 

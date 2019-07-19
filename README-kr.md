@@ -10,8 +10,7 @@ macOS 10.14.3
 1. Issues에 없는 기능은 대부분 작동합니다.
 2. HDMI 화면과 소리가 작동하고 VGA도 (macOS에서 DP로 인식됩니다.) 화면이 잘 나옵니다.
 ## Things to consider
-1. 기존 ACPI 테이블의 _PTS와 _WAK method를 SSDT-PTSWAK.aml를 이용해서 내용을 상당히 지워도 배터리 표기가 정상 작동합니다. _PTS와 _WAK 안에 8-bit보다 큰 FieldUnitObject가 있지만, 두 method는 외장그래픽이 없기 때문에 사용되지 않습니다. 따라서 _PTS와 _WAK method에서 아무것도 하지 않도록 설정해도 macOS가 제대로 작동하는지 테스트해볼 필요는 있습니다.
-2. 클로버와 켁스트를 최신 버전으로 업데이트 했습니다. 테스트해보진 않았지만, 동일한 드라이버와 켁스트를 사용하기 때문에 문제는 없을 것입니다.
+1. None
 ## Acknowledgment
 Apple for macOS
 
