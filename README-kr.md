@@ -10,7 +10,7 @@ macOS 10.14.3
 1. Issues에 없는 기능은 대부분 작동합니다.
 2. HDMI 화면과 소리가 작동하고 VGA도 (macOS에서 DP로 인식됩니다.) 화면이 잘 나옵니다.
 ## Things to consider
-1. None
+1. fn key mapping
 ## Acknowledgment
 Apple for macOS
 

@@ -10,7 +10,7 @@ macOS 10.14.3
 1. Things that are not listed in Issues
 2. HDMI with sound and VGA (recognized as DP by macOS) work
 ## Things to consider
-1. None
+1. fn key mapping
 ## Acknowledgment
 Apple for macOS
 
