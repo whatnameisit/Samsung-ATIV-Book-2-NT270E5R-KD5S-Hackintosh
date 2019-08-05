@@ -1,0 +1,111 @@
+2:653  0:758  Found BIOS RSDP at F0000
+2:653  0:000  Printing ACPI tables from RSDP F0000 ...
+2:653  0:000   F0000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+2:653  0:000    (Xsdt: DB982080, Rsdt: DB982028)
+2:653  0:000    DB982080: 'XSDT', 'LH43STAR', Rev: 1, Len: 132
+2:653  0:000    DB982028: 'RSDT', 'LH43STAR', Rev: 1, Len: 80
+2:653  0:000    Tables in Xsdt: 12
+2:653  0:000    0. DB993010: 'FACP', 'LH43STAR', Rev: 5, Len: 268
+2:653  0:000        (Dsdt: DB982190, Facs: DB997080, XDsdt: DB982190, XFacs: 0)
+2:653  0:000        DB982190: 'DSDT', 'LH43STAR', Rev: 2, Len: 69244
+2:655  0:001        DB997080: 'FACS', Ver: 2, Len: 64
+2:655  0:000    1. DB993120: 'APIC', 'LH43STAR', Rev: 3, Len: 114
+2:655  0:000    2. DB993198: 'FPDT', 'LH43STAR', Rev: 1, Len: 68
+2:655  0:000    3. DB9931E0: 'LPIT', 'LH43STAR', Rev: 1, Len: 92
+2:655  0:000    4. DB993240: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+2:655  0:000    5. DB993780: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+2:655  0:000    6. DB994258: 'MCFG', 'LH43STAR', Rev: 1, Len: 60
+2:655  0:000    7. DB994298: 'HPET', 'LH43STAR', Rev: 1, Len: 56
+2:655  0:000    8. DB9942D0: 'SSDT', 'SataTabl', Rev: 1, Len: 789
+2:655  0:000    9. DB9945E8: 'SSDT', 'SgPch', Rev: 1, Len: 2162
+2:655  0:000    10. DB994E60: 'BGRT', 'LH43STAR', Rev: 0, Len: 56
+2:655  0:000    11. DB998E98: 'UEFI', 'LH43STAR', Rev: 3, Len: 85
+2:655  0:000    Tables in Rsdt: 11
+2:655  0:000    0. DB982108: 'FACP', 'LH43STAR', Rev: 2, Len: 132
+2:655  0:000        (Dsdt: DB982190, Facs: DB997040)
+2:655  0:000        DB982190: 'DSDT', 'LH43STAR', Rev: 2, Len: 69244
+2:656  0:001        DB997040: 'FACS', Ver: 0, Len: 64
+2:656  0:000    1. DB993120: 'APIC', 'LH43STAR', Rev: 3, Len: 114
+2:656  0:000    2. DB993198: 'FPDT', 'LH43STAR', Rev: 1, Len: 68
+2:656  0:000    3. DB9931E0: 'LPIT', 'LH43STAR', Rev: 1, Len: 92
+2:656  0:000    4. DB993240: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+2:656  0:000    5. DB993780: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+2:656  0:000    6. DB994258: 'MCFG', 'LH43STAR', Rev: 1, Len: 60
+2:656  0:000    7. DB994298: 'HPET', 'LH43STAR', Rev: 1, Len: 56
+2:656  0:000    8. DB9942D0: 'SSDT', 'SataTabl', Rev: 1, Len: 789
+2:656  0:000    9. DB9945E8: 'SSDT', 'SgPch', Rev: 1, Len: 2162
+2:656  0:000    10. DB994E60: 'BGRT', 'LH43STAR', Rev: 0, Len: 56
+2:656  0:000  Found UEFI Acpi 2.0 RSDP at DB982000
+2:656  0:000  Saving ACPI tables from RSDP DB982000 to EFI\CLOVER\ACPI\origin ...
+2:656  0:000   DB982000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+2:656  0:000    (Xsdt: DB982080, Rsdt: DB982028)
+2:656  0:000    DB982080: 'XSDT', 'LH43STAR', Rev: 1, Len: 132
+2:656  0:000    DB982028: 'RSDT', 'LH43STAR', Rev: 1, Len: 80
+2:656  0:000    Tables in Xsdt: 12
+2:656  0:000    0. DB993010: 'FACP', 'LH43STAR', Rev: 5, Len: 268
+2:656  0:000        (Dsdt: DB982190, Facs: DB997080, XDsdt: DB982190, XFacs: 0)
+2:656  0:000        DB982190: 'DSDT', 'LH43STAR', Rev: 2, Len: 69244
+2:658  0:001        DB997080: 'FACS', Ver: 2, Len: 64
+2:658  0:000    1. DB993120: 'APIC', 'LH43STAR', Rev: 3, Len: 114
+2:658  0:000    2. DB993198: 'FPDT', 'LH43STAR', Rev: 1, Len: 68
+2:658  0:000    3. DB9931E0: 'LPIT', 'LH43STAR', Rev: 1, Len: 92
+2:658  0:000    4. DB993240: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+2:658  0:000    5. DB993780: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+2:658  0:000    6. DB994258: 'MCFG', 'LH43STAR', Rev: 1, Len: 60
+2:658  0:000    7. DB994298: 'HPET', 'LH43STAR', Rev: 1, Len: 56
+2:658  0:000    8. DB9942D0: 'SSDT', 'SataTabl', Rev: 1, Len: 789
+2:658  0:000    9. DB9945E8: 'SSDT', 'SgPch', Rev: 1, Len: 2162
+2:658  0:000    10. DB994E60: 'BGRT', 'LH43STAR', Rev: 0, Len: 56
+2:658  0:000    11. DB998E98: 'UEFI', 'LH43STAR', Rev: 3, Len: 85
+2:658  0:000    Tables in Rsdt: 11
+2:658  0:000    0. DB982108: 'FACP', 'LH43STAR', Rev: 2, Len: 132
+2:658  0:000        (Dsdt: DB982190, Facs: DB997040)
+2:658  0:000        DB982190: 'DSDT', 'LH43STAR', Rev: 2, Len: 69244
+2:660  0:001        DB997040: 'FACS', Ver: 0, Len: 64
+2:660  0:000    1. DB993120: 'APIC', 'LH43STAR', Rev: 3, Len: 114
+2:660  0:000    2. DB993198: 'FPDT', 'LH43STAR', Rev: 1, Len: 68
+2:660  0:000    3. DB9931E0: 'LPIT', 'LH43STAR', Rev: 1, Len: 92
+2:660  0:000    4. DB993240: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+2:660  0:000    5. DB993780: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+2:660  0:000    6. DB994258: 'MCFG', 'LH43STAR', Rev: 1, Len: 60
+2:660  0:000    7. DB994298: 'HPET', 'LH43STAR', Rev: 1, Len: 56
+2:660  0:000    8. DB9942D0: 'SSDT', 'SataTabl', Rev: 1, Len: 789
+2:660  0:000    9. DB9945E8: 'SSDT', 'SgPch', Rev: 1, Len: 2162
+2:660  0:000    10. DB994E60: 'BGRT', 'LH43STAR', Rev: 0, Len: 56
+2:660  0:000  Found UEFI Acpi 1.0 RSDP at DB982000
+2:660  0:000  Printing ACPI tables from RSDP DB982000 ...
+2:660  0:000   DB982000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+2:660  0:000    (Xsdt: DB982080, Rsdt: DB982028)
+2:660  0:000    DB982080: 'XSDT', 'LH43STAR', Rev: 1, Len: 132
+2:660  0:000    DB982028: 'RSDT', 'LH43STAR', Rev: 1, Len: 80
+2:660  0:000    Tables in Xsdt: 12
+2:660  0:000    0. DB993010: 'FACP', 'LH43STAR', Rev: 5, Len: 268
+2:660  0:000        (Dsdt: DB982190, Facs: DB997080, XDsdt: DB982190, XFacs: 0)
+2:660  0:000        DB982190: 'DSDT', 'LH43STAR', Rev: 2, Len: 69244
+2:661  0:001        DB997080: 'FACS', Ver: 2, Len: 64
+2:661  0:000    1. DB993120: 'APIC', 'LH43STAR', Rev: 3, Len: 114
+2:661  0:000    2. DB993198: 'FPDT', 'LH43STAR', Rev: 1, Len: 68
+2:661  0:000    3. DB9931E0: 'LPIT', 'LH43STAR', Rev: 1, Len: 92
+2:661  0:000    4. DB993240: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+2:661  0:000    5. DB993780: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+2:661  0:000    6. DB994258: 'MCFG', 'LH43STAR', Rev: 1, Len: 60
+2:661  0:000    7. DB994298: 'HPET', 'LH43STAR', Rev: 1, Len: 56
+2:661  0:000    8. DB9942D0: 'SSDT', 'SataTabl', Rev: 1, Len: 789
+2:661  0:000    9. DB9945E8: 'SSDT', 'SgPch', Rev: 1, Len: 2162
+2:661  0:000    10. DB994E60: 'BGRT', 'LH43STAR', Rev: 0, Len: 56
+2:661  0:000    11. DB998E98: 'UEFI', 'LH43STAR', Rev: 3, Len: 85
+2:661  0:000    Tables in Rsdt: 11
+2:661  0:000    0. DB982108: 'FACP', 'LH43STAR', Rev: 2, Len: 132
+2:661  0:000        (Dsdt: DB982190, Facs: DB997040)
+2:661  0:000        DB982190: 'DSDT', 'LH43STAR', Rev: 2, Len: 69244
+2:663  0:001        DB997040: 'FACS', Ver: 0, Len: 64
+2:663  0:000    1. DB993120: 'APIC', 'LH43STAR', Rev: 3, Len: 114
+2:663  0:000    2. DB993198: 'FPDT', 'LH43STAR', Rev: 1, Len: 68
+2:663  0:000    3. DB9931E0: 'LPIT', 'LH43STAR', Rev: 1, Len: 92
+2:663  0:000    4. DB993240: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+2:663  0:000    5. DB993780: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+2:663  0:000    6. DB994258: 'MCFG', 'LH43STAR', Rev: 1, Len: 60
+2:663  0:000    7. DB994298: 'HPET', 'LH43STAR', Rev: 1, Len: 56
+2:663  0:000    8. DB9942D0: 'SSDT', 'SataTabl', Rev: 1, Len: 789
+2:663  0:000    9. DB9945E8: 'SSDT', 'SgPch', Rev: 1, Len: 2162
+2:663  0:000    10. DB994E60: 'BGRT', 'LH43STAR', Rev: 0, Len: 56
