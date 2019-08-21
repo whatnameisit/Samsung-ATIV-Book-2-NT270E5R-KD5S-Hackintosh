@@ -6,6 +6,7 @@ macOS 10.14.3
     - EMlyDinEsH is not working on BTFirmware anymore so Handoff and Air Drop are not working properly
     - WiFi is very slow
     - Yes, the card is built-in.
+3. Sleep broken.
 ## Working
 1. Things that are not listed in Issues
 2. HDMI with sound and VGA (recognized as DP by macOS) work
