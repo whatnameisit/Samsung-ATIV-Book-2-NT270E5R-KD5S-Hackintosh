@@ -27,7 +27,7 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>M(_PTS,1,N) to ZPTS</string>
+					<string>Unused: M(_PTS,1,N) to ZPTS-need to check</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -37,17 +37,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>M(GPRW,2,N) to XPRW</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>R1BSVwJwaA==</data>
-					<key>Replace</key>
-					<data>WFBSVwJwaA==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>M(_WAK,1,S) to ZWAK</string>
+					<string>Unused: M(_WAK,1,S) to ZWAK-need to check</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -57,7 +47,17 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>_BST to XBST</string>
+					<string>Battery: M(GPRW,2,N) to XPRW</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>R1BSVwJwaA==</data>
+					<key>Replace</key>
+					<data>WFBSVwJwaA==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Battery: _BST to XBST</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -67,7 +67,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>_BTP to XBTP</string>
+					<string>Battery: _BTP to XBTP</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -77,7 +77,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>M(SBIX,0,S) to XBIX</string>
+					<string>Battery: M(SBIX,0,S) to XBIX</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -87,53 +87,13 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change _DSM to XDSM</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X0RTTQ==</data>
-					<key>Replace</key>
-					<data>WERTTQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change SAT0 to SATA</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>U0FUMA==</data>
-					<key>Replace</key>
-					<data>U0FUQQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
+					<string>USB Power: change EHC1 to EH01</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
 					<data>RUhDMQ==</data>
 					<key>Replace</key>
 					<data>RUgwMQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>R0ZYMA==</data>
-					<key>Replace</key>
-					<data>SUdQVQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change B0D3 to HDAU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>QjBEMw==</data>
-					<key>Replace</key>
-					<data>SERBVQ==</data>
 				</dict>
 			</array>
 		</dict>
