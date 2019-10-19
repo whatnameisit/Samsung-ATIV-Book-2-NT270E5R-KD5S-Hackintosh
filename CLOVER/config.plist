@@ -27,7 +27,19 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>Unused: M(_PTS,1,N) to ZPTS-need to check</string>
+					<string>Resource table: M(_STA) in MATH to XSTA, pair with SSDT-enable-MATH.aml</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1NUQQ==</data>
+					<key>Replace</key>
+					<data>WFNUQQ==</data>
+					<key>TgtBridge</key>
+					<data>TUFUSA==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Sleep fix: M(_PTS,1,N) to ZPTS, pair with SSDT-SAMBAT.aml</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -37,7 +49,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Unused: M(_WAK,1,S) to ZWAK-need to check</string>
+					<string>Sleep fix: M(_WAK,1,S) to ZWAK, pair with SSDT-SAMBAT.aml</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -161,19 +173,17 @@
 				<data>AACQAA==</data>
 				<key>framebuffer-patch-enable</key>
 				<integer>1</integer>
-				<key>framebuffer-patch1-enable</key>
-				<integer>1</integer>
 				<key>framebuffer-unifiedmem</key>
 				<data>AAAAgA==</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
-				<key>## patch1</key>
+				<key># patch1</key>
 				<string>Enable internal display after sleep for 0x0a2e000a, 0x0a26000a</string>
-				<key>#framebuffer-patch1-enable</key>
+				<key>framebuffer-patch1-enable</key>
 				<integer>1</integer>
-				<key>#framebuffer-patch1-find</key>
+				<key>framebuffer-patch1-find</key>
 				<data>AQAAAEAAAAAeAgAABQUJAQ==</data>
-				<key>#framebuffer-patch1-replace</key>
+				<key>framebuffer-patch1-replace</key>
 				<data>AQAAAEAAAAAfAgAABQUJAQ==</data>
 			</dict>
 			<key>PciRoot(0)/Pci(0x03,0)</key>
@@ -244,6 +254,8 @@
 	<dict>
 		<key>AppleRTC</key>
 		<true/>
+		<key>PanicNoKextDump</key>
+		<true/>
 		<key>DellSMBIOSPatch</key>
 		<false/>
 		<key>KernelLapic</key>
@@ -264,21 +276,9 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 release kernel (credit vit9696)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>igKEwHRE</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Replace</key>
-				<data>igKEwOtE</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Disable panic kext logging on 10.14 release kernel (credit vit9696)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>igKEwHRC</data>
 				<key>MatchOS</key>
