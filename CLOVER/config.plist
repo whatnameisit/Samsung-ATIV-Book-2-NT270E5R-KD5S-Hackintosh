@@ -134,7 +134,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-ath9565 kext-dev-mode=1 -igfxnohdmi</string>
+		<string>kext-dev-mode=1 -igfxnohdmi</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>NeverHibernate</key>

@@ -35,7 +35,7 @@
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>17G52</string>
+	<string>17G55</string>
 	<key>DTSDKName</key>
 	<string>macosx10.13internal</string>
 	<key>DTXcode</key>
@@ -54,7 +54,7 @@
 			<string>IODefaultMatchCategory</string>
 			<key>IONameMatch</key>
 			<array>
-				<string>pci168c,30</string>
+				<string>pci168c,36</string>
 				<string>pci168c,2a</string>
 				<string>pci106b,0086</string>
 				<string>pci168c,1c</string>
