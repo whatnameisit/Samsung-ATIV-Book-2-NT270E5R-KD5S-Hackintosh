@@ -1,6 +1,8 @@
 // created by whatnameisit
+#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "_LDRC", 0x00000000)
 {
+#endif
     If (_OSI ("Darwin"))
     {
         Method (_SB.PCI0.LPCB.LDRC._STA, 0, NotSerialized)  // _STA: Status
@@ -92,5 +94,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LDRC", 0x00000000)
             })
         }
     }
+#ifndef NO_DEFINITIONBLOCK
 }
+#endif
 
