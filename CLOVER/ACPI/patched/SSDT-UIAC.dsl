@@ -34,7 +34,19 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_UIAC", 0x00000000)
                 "ports", 
                 Package (0x08)
                 {
-                    "RIG1", // Right 1
+                    "LEF1", // Left 1
+                    Package (0x04)
+                    {
+                        "portType", 
+                        Zero, 
+                        "port", 
+                        Buffer (0x04)
+                        {
+                             0x01, 0x00, 0x00, 0x00                         
+                        }
+                    },
+                    
+                    "RGT1", // Right 1
                     Package (0x04)
                     {
                         "portType", 
@@ -46,7 +58,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_UIAC", 0x00000000)
                         }
                     }, 
 
-                    "RIG2", // Right 2
+                    "RGT2", // Right 2
                     Package (0x04)
                     {
                         "portType", 
@@ -67,18 +79,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_UIAC", 0x00000000)
                         Buffer (0x04)
                         {
                              0x05, 0x00, 0x00, 0x00                         
-                        }
-                    }, 
-
-                    "LEF1", // Left 1
-                    Package (0x04)
-                    {
-                        "portType", 
-                        Zero, 
-                        "port", 
-                        Buffer (0x04)
-                        {
-                             0x01, 0x00, 0x00, 0x00                         
                         }
                     }
                 }
