@@ -16,6 +16,5 @@ DefinitionBlock ("", "SSDT", 2, "hack", "NT270E5R", 0)
     #include "SSDT-PNLF.dsl"
     #include "SSDT-SBUS.dsl"
     #include "SSDT-SLPB.dsl"
-    #include "SSDT-UIAC.dsl"
 
 }

@@ -97,16 +97,6 @@
 					<key>Replace</key>
 					<data>WEJJWAg=</data>
 				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>USB Power: change EHC1 to EH01</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>RUhDMQ==</data>
-					<key>Replace</key>
-					<data>RUgwMQ==</data>
-				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
