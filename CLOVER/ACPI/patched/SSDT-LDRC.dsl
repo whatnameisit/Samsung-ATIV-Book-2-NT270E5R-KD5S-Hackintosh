@@ -13,6 +13,15 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_LDRC", 0x00000000)
 
     Device (_SB.PCI0.LPCB.LDRD) // create new LDRC for macOS
     {
+        Method (_STA)
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0f)
+            }
+            Return (0)
+        }
+        
         Name (_HID, EisaId ("PNP0C02"))  // _HID: Hardware ID
         Name (_UID, 0x02)  // _UID: Unique ID
         If (_OSI ("Darwin"))

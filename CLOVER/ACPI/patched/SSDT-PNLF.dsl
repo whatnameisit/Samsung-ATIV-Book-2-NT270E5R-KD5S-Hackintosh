@@ -11,9 +11,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_PNLF", 0x00000000)
     External (RMCF.LEVW, IntObj)    // (from opcode)
     External (RMCF.LMAX, IntObj)    // (from opcode)
 
-    Scope (_SB.PCI0.GFX0)
+    If (_OSI ("Darwin"))
     {
-        OperationRegion (RMP3, PCI_Config, Zero, 0x14)
+        Scope (_SB.PCI0.GFX0)
+        {
+            OperationRegion (RMP3, PCI_Config, Zero, 0x14)
+        }
     }
 
     Device (_SB.PCI0.GFX0.PNLF)
