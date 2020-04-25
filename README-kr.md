@@ -11,8 +11,7 @@ macOS 10.14.3
 2. HDMI 화면과 소리가 작동하고 VGA도 (macOS에서 DP로 인식됩니다.) 화면이 잘 나옵니다.
 ## Things to consider
 1. fn key mapping
-2. 잠자기에서 깰 때 키보드를 입력해야 화면이 켜집니다.
-3. SD 카드 리더기가 작동하지 않습니다. 블루투스와 더불어 포트를 입력을 제거했습니다.
+2. SD 카드 리더기가 작동하지 않습니다. 블루투스와 더불어 포트를 입력을 제거했습니다.
 ## Acknowledgment
 Apple for macOS
 

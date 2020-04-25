@@ -11,8 +11,7 @@ macOS 10.14.3
 2. HDMI with sound and VGA (recognized as DP by macOS) work.
 ## Things to consider
 1. fn key mapping,
-2. A keystroke after wake from sleep is required to turn on the screen.
-3. The SD card reader cannot read any cards. This port (and also the bluetooth controller) is excluded from USB ports injection.
+2. The SD card reader cannot read any cards. This port (and also the bluetooth controller) is excluded from USB ports injection.
 ## Acknowledgment
 Apple for macOS
 
