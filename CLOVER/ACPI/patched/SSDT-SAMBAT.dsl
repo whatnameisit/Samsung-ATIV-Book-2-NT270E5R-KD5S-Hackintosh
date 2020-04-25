@@ -1,5 +1,4 @@
 // Battery patch for NT270E5R-KD5S
-// Also includes much of _PTSWAK patch from RehabMan's repo: https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-PTSWAK.dsl
 // created by whatnameisit
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "batt", 0x00000000)
@@ -472,7 +471,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "batt", 0x00000000)
         Return (Local0)
     }
 
-    Method (YPTS, 1, NotSerialized)
+    Method (_PTS, 1, NotSerialized)
     {
         P80D = Zero
         P8XH (Zero, Arg0)
@@ -512,8 +511,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "batt", 0x00000000)
         }
     }
 
-    Method (YWAK, 1, NotSerialized)
+    Method (_WAK, 1, NotSerialized)
     {
+        If (3 == Arg0)
+        {
+            Notify (\_SB.LID0, 0x80)
+        }
         P8XH (One, 0xAB)
         WAK (Arg0)
         ADBG ("_WAK")
@@ -759,57 +762,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "batt", 0x00000000)
             Zero, 
             Zero
         })
-    }
-
-    Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
-    {
-        If ((0x05 == Arg0))
-        {
-            If (CondRefOf (\RMCF.SHUT))
-            {
-                If ((\RMCF.SHUT & One))
-                {
-                    Return (Zero)
-                }
-
-                If ((\RMCF.SHUT & 0x02))
-                {
-                    OperationRegion (PMRS, SystemIO, 0x1830, One)
-                    Field (PMRS, ByteAcc, NoLock, Preserve)
-                    {
-                            ,   4, 
-                        SLPE,   1
-                    }
-
-                    SLPE = Zero
-                    Sleep (0x10)
-                }
-            }
-        }
-
-        YPTS (Arg0)
-    }
-
-    Method (_WAK, 1, NotSerialized)  // _WAK: Wake
-    {
-        If (((Arg0 < One) || (Arg0 > 0x05)))
-        {
-            Arg0 = 0x03
-        }
-
-        Local0 = YWAK (Arg0)
-        If (CondRefOf (\RMCF.SSTF))
-        {
-            If (\RMCF.SSTF)
-            {
-                If (((0x03 == Arg0) && CondRefOf (\_SI._SST)))
-                {
-                    \_SI._SST (One)
-                }
-            }
-        }
-
-        Return (Local0)
     }
 #ifndef NO_DEFINITIONBLOCK
 }
