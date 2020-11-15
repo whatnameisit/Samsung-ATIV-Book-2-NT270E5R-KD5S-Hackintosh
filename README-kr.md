@@ -1,29 +1,33 @@
 # Samsung-ATIV-Book-2-NT270E5R-KD5S
-macOS 10.14.3
 
 ## Issues
-1. 시리를 활성화시키면 마이크가 너무 예민해져서 가만히 놔두어도 소리를 듣는 것처럼 작동합니다. 마이크 레벨을 0에 최대한 가깝게 설정해야 합니다. 0이 되면 마이크 작동하지 않습니다. 최근 AppleALC.kext로는 마이크 레벨을 10 % 정도로 설정하면 잘 작동합니다.
-2. Atheros WiFi/BT는 모하비에서 더이상 지원되지 않습니다. 또한 AR9565 모델은 활성화시키는 3rd-party 켁스트를 넣지 않으면 작동하지 않습니다.
-    - BT를 사용할 수 있게 해주는 켁스트의 원작자인 EMlyDinEsH는 더이상 아무것도 안하는 듯 합니다. 모하비 기준으로 Handoff and Air Drop이 제대로 작동하지 않습니다.
-    - WiFi가 매우 느립니다.
+1. Atheros Wi-Fi/BT는 High Sierra 이후로 지원되지 않습니다. High Sierra의 IO80211Family.kext와 AirportAtheros40.kext를 이용하여 Mojave와 이후 OS에서 AR9565를 이용할 수 있습니다. 하지만 여전히 문제점이 있습니다.
+    - Wi-Fi가 매우 느립니다.
     - 온보드 카드이기 때문에 교체할 수 없습니다.
+    - Continuity 기능을 사용할 수 없습니다.
+2. NumPad가 제대로 작동하지 않습니다.
+    - 그냥 누르면 각인된 아래 키가 작동합니다: Home, uparrow, PgUp, etc.
+    - Fn+#를 입력하는 형식으로 숫자를 입력할 수 있습니다.
+3. SD 카드 리더기가 작동하지 않습니다.
 
-## Activate AR9565's WiFi
-1. /Library/Extensions에 AirPortAtheros40.kext를 복사합니다.
-2. `sudo chown -R 0:0 /L*/E* && sudo chmod -R 755 /L*/E* && sudo kextcache -i /`를 터미널에 입력합니다.
-- Note:  부트로더를 이용하여 켁스트를 작동시키려면 IO80211Family.kext도 같이 부트로더 상에 있어야 합니다. 하지만 OS 업데이트시 커널패닉이 일어날 수 있으며, 오픈코어의 IO80211Family.kext 인젝션은 제한적입니다.
+## Activate AR9565's Wi-Fi
+1. [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/)와 같이 로딩되는 AR9565용 AirportAtheros40.kext를 부트로더에 추가합니다.
 
 ## Working
 1. Issues에 없는 기능은 대부분 작동합니다.
 2. HDMI 화면과 소리가 작동하고 VGA도 (macOS에서 DP로 인식됩니다.) 화면이 잘 나옵니다.
 
 ## Things to consider
-1. fn key mapping
-2. SD 카드 리더기가 작동하지 않습니다. 블루투스와 더불어 포트를 입력을 제거했습니다.
+1. SD 카드 리더기가 작동하지 않습니다. VMWare를 이용하여 사용하길 원하면 [이 가이드](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader)를 참고하십시오.
+2. Aptio Setup Utility P07RCK 기준으로 MSR 0xE2 register offset은 0x59입니다.
 
 ## Acknowledgment
 Apple for macOS
 
+The Acidanthera team for OpenCore and kexts
+
 RehabMan for his laptop guides
 
 CaseySJ for starting and keeping the framebuffer discussions alive at tonymacx86
+
+zxystd(original author) and lynxnu(fixed kernel panic) for Ath3kBT
