@@ -362,14 +362,6 @@
 				<data>AAAAgA==</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
-				<key># patch1</key>
-				<string>Enable internal display after sleep for 0x0a2e000a, 0x0a26000a</string>
-				<key>framebuffer-patch1-enable</key>
-				<integer>1</integer>
-				<key>framebuffer-patch1-find</key>
-				<data>AQAAAEAAAAAeAgAABQUJAQ==</data>
-				<key>framebuffer-patch1-replace</key>
-				<data>AQAAAEAAAAAfAgAABQUJAQ==</data>
 			</dict>
 			<key>PciRoot(0)/Pci(0x03,0)</key>
 			<dict>
