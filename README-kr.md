@@ -8,6 +8,7 @@
 | Ethernet | Realtek RTL8136 |
 | Wi-Fi / Bluetooth | AR9565 / AR3012 |
 | Card Reader | Realtek RTS5129 |
+| Camera | Webcam SC-10HDD12636P |
 | Audio | Realtek ALC282 |
 | Touchpad | Synaptics PS/2 touchpad |
 | UEFI BIOS Version | Aptio Setup Utility P07RCK |
