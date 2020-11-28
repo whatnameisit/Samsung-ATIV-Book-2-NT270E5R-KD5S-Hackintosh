@@ -5,11 +5,11 @@
 | - | - |
 | CPU | Intel Core i5-4200U |
 | Graphics | Intel HD Graphics 4400 |
-| Ethernet | Realtek RTL8136 |
+| Ethernet | Realtek Fast Ethernet RTL8136 |
 | Wi-Fi / Bluetooth | AR9565 / AR3012 |
-| Card Reader | Realtek RTS5129 |
+| Card Reader | *Realtek USB Card Reader RTS5129 (limited support)* |
 | Camera | Webcam SC-10HDD12636P |
-| Audio | Realtek ALC282 |
+| Audio | Realtek HD Audio ALC282 |
 | Touchpad | Synaptics PS/2 touchpad |
 | UEFI BIOS Version | Aptio Setup Utility P07RCK |
 
