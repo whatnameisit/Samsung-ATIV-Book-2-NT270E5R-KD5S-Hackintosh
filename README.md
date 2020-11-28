@@ -1,7 +1,19 @@
 # Samsung-ATIV-Book-2-NT270E5R-KD5S
 
+## System Specification
+| Laptop | Samsung ATIV Book 2 NT270E5R-KD5S |
+| - | - |
+| CPU | Intel Core i5-4200U |
+| Graphics | Intel HD Graphics 4400 |
+| Ethernet | Realtek RTL8136 |
+| Wi-Fi / Bluetooth | AR9565 / AR3012 |
+| Card Reader | Realtek RTS5129 |
+| Audio | Realtek ALC282 |
+| Touchpad | Synaptics PS/2 touchpad |
+| UEFI BIOS Version | Aptio Setup Utility P07RCK |
+
 ## Issues
-1. Apple dropped support for Atheros Wi-Fi/BT since Mojave and AR9565 it not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra.
+1. Apple dropped support for Atheros Wi-Fi since Mojave and AR9565 it not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra.
     - The Wi-Fi is very slow.
     - The card is soldered.
     - Continuity features do not work.
@@ -9,8 +21,9 @@
     - A simple stroke will invoke lower printed keys: Home, uparrow, PgUp, etc.
     - Numbers can be typed with the combination of Fn+#.
 3. The SD care reader cannot read any cards.
+4. Touchpad gestures are not recognized well upon waking from sleep.
 
-## Activate AR9565's WiFi
+## Activate AR9565 Wi-Fi
 1. Install [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/) and the corresponding AirportAtheros40.kext for AR9565 on the bootloader.
 
 ## Working
