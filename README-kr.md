@@ -1,8 +1,9 @@
 # Samsung-ATIV-Book-2-NT270E5R-KD5S
 
 ## System Specification
-| Laptop | Samsung ATIV Book 2 NT270E5R-KD5S |
+| Name | Description |
 | - | - |
+| Model | Samsung ATIV Book 2 NT270E5R-KD5S |
 | CPU | Intel Core i5-4200U |
 | Graphics | Intel HD Graphics 4400 |
 | Ethernet | Realtek Fast Ethernet RTL8136 |
