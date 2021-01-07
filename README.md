@@ -19,7 +19,7 @@
     - The Wi-Fi is very slow.
     - The card is soldered.
     - Continuity features do not work.
-2. NumPad is not working.
+2. NumPad is not working correctly.
     - A simple stroke will invoke lower printed keys: Home, uparrow, PgUp, etc.
     - Numbers can be typed with the combination of Fn+#.
 3. The SD care reader cannot read any cards.
