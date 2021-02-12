@@ -1,7 +1,7 @@
 # Samsung-ATIV-Book-2-NT270E5R-KD5S
 
 ## System Specification
-| Name | Description |
+| Item | Details |
 | - | - |
 | Model | Samsung ATIV Book 2 NT270E5R-KD5S |
 | CPU | Intel Core i5-4200U |
@@ -27,7 +27,7 @@
 
 ## Working
 1. Things that are not listed in Issues
-2. HDMI with sound and VGA (recognized as DP by macOS) work.
+2. HDMI with sound and VGA (recognized as DP in macOS) work.
 
 ## Things to consider
 1. The SD card reader cannot read any cards. Refer to [this guide](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader) to use it through VMWare.

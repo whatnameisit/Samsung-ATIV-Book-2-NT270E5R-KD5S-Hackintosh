@@ -1,7 +1,7 @@
 # Samsung-ATIV-Book-2-NT270E5R-KD5S
 
 ## System Specification
-| Name | Description |
+| Item | Details |
 | - | - |
 | Model | Samsung ATIV Book 2 NT270E5R-KD5S |
 | CPU | Intel Core i5-4200U |
