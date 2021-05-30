@@ -18,6 +18,7 @@
 
 ## Issues
 
+The same issues can be found in my other repository.
 1. [Wi-Fi](https://github.com/whatnameisit/Samsung-ATIV-One-5-DM500A2J-K26L-Hackintosh/issues/7)
 2. [SD card](https://github.com/whatnameisit/Samsung-ATIV-One-5-DM500A2J-K26L-Hackintosh/issues/8)
 
