@@ -25,10 +25,10 @@
 
 Apple for macOS
 
-The Acidanthera team for OpenCore and kexts
+The Acidanthera team for OpenCore and many kexts
 
-RehabMan for his laptop guides
+The Dortania team for OpenCore guides
 
-CaseySJ for starting and keeping the framebuffer discussions alive at tonymacx86
+CaseySJ for starting the Intel framebuffer discussions at tonymacx86 which helped with VGA output
 
 zxystd(original author) and lynxnu(fixed kernel panic) for Ath3kBT
