@@ -7,7 +7,7 @@
 | Model | Samsung ATIV Book 2 NT270E5R-KD5S |
 | CPU | Intel Core i5-4200U |
 | Graphics | Intel HD Graphics 4400 |
-| RAM | Samsung SODIMM DDR3L 8GB *(Upgraded)* |
+| RAM | Samsung 8GB 1600 MHz DDR3L SODIMM *(Upgraded)* |
 | Ethernet | Realtek Fast Ethernet RTL8136 |
 | Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 |
 | Card Reader | Realtek USB Card Reader RTS5129 *(Limited support)* |
