@@ -1,4 +1,4 @@
-# Samsung-ATIV-Book-2-NT270E5R-KD5S
+# Samsung-ATIV-Book-2-NT270E5R-KD5S Hackintosh
 
 ## System Specification
 
