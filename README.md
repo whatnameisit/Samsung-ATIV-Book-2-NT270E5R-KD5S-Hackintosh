@@ -1,4 +1,4 @@
-# Samsung-ATIV-Book-2-NT270E5R-KD5S
+# Samsung-ATIV-Book-2-NT270E5R-KD5S Hackintosh
 
 ## System Specification
 
@@ -12,7 +12,7 @@
 | Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 |
 | Card Reader | Realtek USB Card Reader RTS5129 *(Limited support)* |
 | Camera | Webcam SC-10HDD12636P |
-| Audio | Realtek HD Audio ALC282 |
+| Audio | Realtek ALC282 |
 | Touchpad | Synaptics PS/2 touchpad |
 | UEFI BIOS | Aptio Setup Utility P07RCK |
 

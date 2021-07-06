@@ -298,6 +298,8 @@
 			<false/>
 			<key>ResetLogoStatus</key>
 			<false/>
+			<key>SyncTableIds</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>Booter</key>
@@ -352,7 +354,7 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0)/Pci(0x02,0)</key>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>BgAmCg==</data>
@@ -375,14 +377,14 @@
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 			</dict>
-			<key>PciRoot(0)/Pci(0x03,0)</key>
+			<key>PciRoot(0x0)/Pci(0x3,0x0)</key>
 			<dict>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>layout-id</key>
 				<integer>86</integer>
 			</dict>
-			<key>PciRoot(0)/Pci(0x1b,0)</key>
+			<key>PciRoot(0x0)/Pci(0x1B,0x0)</key>
 			<dict>
 				<key>layout-id</key>
 				<integer>86</integer>
@@ -748,6 +750,8 @@
 		</dict>
 		<key>Scheme</key>
 		<dict>
+			<key>CustomKernel</key>
+			<false/>
 			<key>FuzzyMatch</key>
 			<false/>
 			<key>KernelArch</key>
