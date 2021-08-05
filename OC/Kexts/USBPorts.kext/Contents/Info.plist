@@ -35,9 +35,7 @@
 			<key>IOProviderMergeProperties</key>
 			<dict>
 				<key>port-count</key>
-				<data>
-				BgAAAA==
-				</data>
+				<data>BgAAAA==</data>
 				<key>ports</key>
 				<dict>
 					<key>BLTH</key>
@@ -45,9 +43,7 @@
 						<key>name</key>
 						<string>BLTH</string>
 						<key>port</key>
-						<data>
-						BAAAAA==
-						</data>
+						<data>BAAAAA==</data>
 						<key>portType</key>
 						<integer>0</integer>
 					</dict>
@@ -56,9 +52,7 @@
 						<key>name</key>
 						<string>LEF1</string>
 						<key>port</key>
-						<data>
-						AQAAAA==
-						</data>
+						<data>AQAAAA==</data>
 						<key>portType</key>
 						<integer>0</integer>
 					</dict>
@@ -67,9 +61,7 @@
 						<key>name</key>
 						<string>RIG1</string>
 						<key>port</key>
-						<data>
-						AgAAAA==
-						</data>
+						<data>AgAAAA==</data>
 						<key>portType</key>
 						<integer>0</integer>
 					</dict>
@@ -78,9 +70,16 @@
 						<key>name</key>
 						<string>RIG2</string>
 						<key>port</key>
-						<data>
-						BgAAAA==
-						</data>
+						<data>BgAAAA==</data>
+						<key>portType</key>
+						<integer>0</integer>
+					</dict>
+					<key>SDCR</key>
+					<dict>
+						<key>name</key>
+						<string>SDCR</string>
+						<key>port</key>
+						<data>AwAAAA==</data>
 						<key>portType</key>
 						<integer>0</integer>
 					</dict>
@@ -89,9 +88,7 @@
 						<key>name</key>
 						<string>WEBC</string>
 						<key>port</key>
-						<data>
-						BQAAAA==
-						</data>
+						<data>BQAAAA==</data>
 						<key>portType</key>
 						<integer>0</integer>
 					</dict>
@@ -127,9 +124,7 @@
 				<key>kUSBWakePowerSupply</key>
 				<integer>5100</integer>
 				<key>port-count</key>
-				<data>
-				AQAAAA==
-				</data>
+				<data>AQAAAA==</data>
 				<key>ports</key>
 				<dict>
 					<key>HUB1</key>
@@ -139,9 +134,7 @@
 						<key>name</key>
 						<string>HUB1</string>
 						<key>port</key>
-						<data>
-						AQAAAA==
-						</data>
+						<data>AQAAAA==</data>
 					</dict>
 				</dict>
 			</dict>
