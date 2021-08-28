@@ -10,7 +10,7 @@
 | RAM | Samsung 8GB 1600 MHz DDR3L SODIMM *(Upgraded)* |
 | Ethernet | Realtek Fast Ethernet RTL8136 |
 | Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 |
-| Card Reader | Realtek USB Card Reader RTS5129 *(Limited support)* |
+| Card Reader | Realtek USB Card Reader RTS5129 |
 | Camera | Webcam SC-10HDD12636P |
 | Audio | Realtek ALC282 |
 | Touchpad | Synaptics PS/2 touchpad |
@@ -20,7 +20,6 @@
 
 The same issues can be found in my other repository.
 1. [Wi-Fi](https://github.com/whatnameisit/Samsung-ATIV-One-5-DM500A2J-K26L-Hackintosh/issues/7)
-2. [SD card](https://github.com/whatnameisit/Samsung-ATIV-One-5-DM500A2J-K26L-Hackintosh/issues/8)
 
 ## Steps to install
 
