@@ -16,11 +16,6 @@
 | Touchpad | Synaptics PS/2 touchpad |
 | UEFI BIOS | Aptio Setup Utility P07RCK |
 
-## Issues
-
-The same issues can be found in my other repository.
-1. [Wi-Fi](https://github.com/whatnameisit/Samsung-ATIV-One-5-DM500A2J-K26L-Hackintosh/issues/7)
-
 ## Steps to install
 
 1. Read [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf).
