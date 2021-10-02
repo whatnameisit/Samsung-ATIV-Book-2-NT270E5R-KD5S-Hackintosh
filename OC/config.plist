@@ -10,9 +10,17 @@
 				<key>Comment</key>
 				<string>Enable battery reading</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-Battery.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>test-Enable battery reading sleep at 20 percent battery level</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-testSleepLowBat.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
