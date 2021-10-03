@@ -10,17 +10,9 @@
 				<key>Comment</key>
 				<string>Enable battery reading</string>
 				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-Battery.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>test-Enable battery reading sleep at 20 percent battery level</string>
-				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-testSleepLowBat.aml</string>
+				<string>SSDT-Battery.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -69,6 +61,14 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-PS2.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable sleep battery level in SSDT-Battery.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SetSleepLevel.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
