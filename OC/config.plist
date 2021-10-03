@@ -537,24 +537,6 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>BundlePath</key>
-				<string>HibernationFixup.kext</string>
-				<key>Comment</key>
-				<string>Sleep and hibernation related patcher</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/HibernationFixup</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
-				<key>BundlePath</key>
 				<string>HS80211Family.kext</string>
 				<key>Comment</key>
 				<string>AR9565 Wi-Fi 1</string>
@@ -962,10 +944,7 @@
 				<data>ZW4tVVM6MA==</data>
 			</dict>
 			<key>E09B9297-7928-4440-9AAB-D1F8536FBF0A</key>
-			<dict>
-				<key>hbfx-ahbm</key>
-				<real>3857</real>
-			</dict>
+			<dict/>
 		</dict>
 		<key>Delete</key>
 		<dict>
