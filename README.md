@@ -25,9 +25,9 @@
 5. Boot into USB and select macOS installer and install.
 6. Mount EFI and copy USB EFI to the system EFI partition.
 7. Replace the numbers in SMBIOS.
-- Note: An extra step is needed to achieve Wireless Internet. -- [Wireless Internet with AR9565](#wireless-internet-with-ar9565)
+- Note: An extra step is needed to achieve Wi-Fi connection. -- [Wi-Fi with AR9565](#wi-fi-with-ar9565)
 
-## Wireless Internet with AR9565
+## Wi-Fi with AR9565
 
 1. Go to https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/.
 2. Download HS80211Family.kext and AirportAtheros40-9565.kext.
