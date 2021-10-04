@@ -64,6 +64,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Enable sleep battery level in SSDT-Battery.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SetSleepLevel.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Add SMBus compatibility</string>
 				<key>Enabled</key>
 				<true/>
