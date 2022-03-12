@@ -25,13 +25,18 @@
 5. Boot into USB and select macOS installer and install.
 6. Mount EFI and copy USB EFI to the system EFI partition.
 7. Replace the numbers in SMBIOS.
-- Note: An extra step is needed to achieve Wi-Fi connection. -- [Wi-Fi with AR9565](#wi-fi-with-ar9565)
+- Note: An extra step is needed to achieve Wi-Fi connection. -- [Wi-Fi with AR9565](#wi-fi-with-ar9565-big-sur-and-below-only)
 
-## Wi-Fi with AR9565
+## Wi-Fi with AR9565 - Big Sur and below only
 
 1. Go to https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/.
 2. Download HS80211Family.kext and AirportAtheros40-9565.kext.
 3. Place HS80211Family.kext and the one extracted from AirportAtheros40-9565.kext inside /EFI/OC/Kexts folder
+- Note: HS80211Family.kext causes panic on macOS Monterey. Use USB Wi-Fi dongle or Ethernet instead.
+
+## Wi-Fi with USB Wi-Fi dongle
+
+See [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter).
 
 ## Acknowledgment
 
