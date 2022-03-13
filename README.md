@@ -25,18 +25,19 @@
 5. Boot into USB and select macOS installer and install.
 6. Mount EFI and copy USB EFI to the system EFI partition.
 7. Replace the numbers in SMBIOS.
-- Note: An extra step is needed to achieve Wi-Fi connection. -- [Wi-Fi with AR9565](#wi-fi-with-ar9565-big-sur-and-below-only)
 
-## Wi-Fi with AR9565 - Big Sur and below only
+## Wi-Fi / Bluetooth with AR9565 / AR3012 - Big Sur and below only
 
 1. Go to https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/.
 2. Download HS80211Family.kext and AirportAtheros40-9565.kext.
 3. Place HS80211Family.kext and the one extracted from AirportAtheros40-9565.kext inside /EFI/OC/Kexts folder
-- Note: HS80211Family.kext causes panic on macOS Monterey. Use USB Wi-Fi dongle or Ethernet instead.
+- Note 1: HS80211Family.kext causes panic on macOS Monterey. Use a USB Wi-Fi dongle or Ethernet instead.
+- Note 2: Atheros Bluetooth development has not continued since Monterey. Use a USB Bluetooth dongle instead.
 
-## Wi-Fi with USB Wi-Fi dongle
+## Wi-Fi / Bluetooth with USB Wi-Fi / Bluetooth dongle
 
-See [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter).
+See [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for compatible Wi-Fi dongle and installation.
+See [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) for dompatible Bluetooth dongle and installation.
 
 ## Acknowledgment
 
@@ -45,7 +46,3 @@ Apple for macOS
 The Acidanthera team for OpenCore and many kexts
 
 The Dortania team for OpenCore guides
-
-CaseySJ for starting the Intel framebuffer discussions at tonymacx86 which helped with VGA output
-
-zxystd(original author) and lynxnu(fixed kernel panic) for Ath3kBT
