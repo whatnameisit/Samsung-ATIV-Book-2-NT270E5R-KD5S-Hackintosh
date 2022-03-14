@@ -16,6 +16,11 @@
 | Touchpad | Synaptics PS/2 touchpad | |
 | UEFI BIOS | Aptio Setup Utility P07RCK | |
 
+## Not working
+- Apple Airport features: Soldered Wi-Fi / Bluetooth cannot be replaced.
+- DRM contents on Safari: This is limited by non-native IGPU firmware not having Apple keys.
+- Hibernation: It seems even with the right settings hibernation image is stored, but the machine does not turn off.
+
 ## Steps to install
 
 1. Read [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf).
