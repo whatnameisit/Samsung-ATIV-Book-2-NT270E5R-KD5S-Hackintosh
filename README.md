@@ -2,19 +2,19 @@
 
 ## System Specification
 
-| Item | Details |
-| - | - |
-| Model | Samsung ATIV Book 2 NT270E5R-KD5S |
-| CPU | Intel Core i5-4200U |
-| Graphics | Intel HD Graphics 4400 |
-| RAM | Samsung 8GB 1600 MHz DDR3L SODIMM *(Upgraded)* |
-| Ethernet | Realtek Fast Ethernet RTL8136 |
-| Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 |
-| Card Reader | Realtek USB Card Reader RTS5129 |
-| Camera | Webcam SC-10HDD12636P |
-| Audio | Realtek ALC282 |
-| Touchpad | Synaptics PS/2 touchpad |
-| UEFI BIOS | Aptio Setup Utility P07RCK |
+| Item | Details | Note |
+| - | - | - |
+| Model | Samsung ATIV Book 2 NT270E5R-KD5S | |
+| CPU | Intel Core i5-4200U | |
+| Graphics | Intel HD Graphics 4400 | |
+| RAM | Samsung 8GB 1600 MHz DDR3L SODIMM | Upgraded |
+| Ethernet | Realtek Fast Ethernet RTL8136 | |
+| Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 | Not working in macOS Monterey |
+| Card Reader | Realtek USB Card Reader RTS5129 | |
+| Camera | Webcam SC-10HDD12636P | |
+| Audio | Realtek ALC282 | |
+| Touchpad | Synaptics PS/2 touchpad | |
+| UEFI BIOS | Aptio Setup Utility P07RCK | |
 
 ## Steps to install
 
@@ -37,7 +37,7 @@
 ## Wi-Fi / Bluetooth with USB Wi-Fi / Bluetooth dongle
 
 See [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for compatible Wi-Fi dongle and installation.
-See [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) for dompatible Bluetooth dongle and installation.
+See [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) for compatible Bluetooth dongle and installation.
 
 ## Acknowledgment
 
