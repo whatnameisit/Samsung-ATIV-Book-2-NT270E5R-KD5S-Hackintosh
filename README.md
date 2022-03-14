@@ -9,7 +9,7 @@
 | Graphics | Intel HD Graphics 4400 | |
 | RAM | Samsung 8GB 1600 MHz DDR3L SODIMM | Upgraded |
 | Ethernet | Realtek Fast Ethernet RTL8136 | |
-| Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 | Not working in macOS Monterey |
+| Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 | Not working in macOS Monterey. Use USB dongles instead. |
 | Card Reader | Realtek USB Card Reader RTS5129 | |
 | Camera | Webcam SC-10HDD12636P | |
 | Audio | Realtek ALC282 | |
