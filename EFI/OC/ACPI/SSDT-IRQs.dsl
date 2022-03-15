@@ -13,6 +13,8 @@ DefinitionBlock ("", "SSDT", 2, "what", "IRQs", 0x00000000)
 {
     External (_SB_.PCI0.LPCB, DeviceObj)
     External (_SB_.PCI0.LPCB.HPET, DeviceObj)
+    External (_SB_.PCI0.LPCB.RTC_, DeviceObj)
+    External (_SB_.PCI0.LPCB.TIMR, DeviceObj)
     External (_SB_.PCI0.LPCB.HPET.BUF0, BuffObj)
     External (_SB_.PCI0.LPCB.HPET.XCRS, MethodObj)    // 0 Arguments
 
