@@ -44,6 +44,10 @@
 See [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for compatible Wi-Fi dongle and installation.
 See [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) for compatible Bluetooth dongle and installation.
 
+## Future Updates
+
+Apple may drop MacBookPro11,4 in macOS 13 or later as they no longer manufacture new intel product lines. Until final intel Mac models are supported, update MLB in config accordingly to bypass OS upgrade requirement.
+
 ## Acknowledgment
 
 Apple for macOS
