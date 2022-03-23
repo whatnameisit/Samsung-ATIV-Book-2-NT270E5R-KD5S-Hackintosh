@@ -11,7 +11,7 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "PNLF", 0x00000000)
     External (RMCF.LEVW, IntObj)
     External (RMCF.LMAX, IntObj)
 
-    If (OSDW ())
+    If (_OSI ("Darwin"))
     {
         Scope (\_SB.PCI0.GFX0)
         {

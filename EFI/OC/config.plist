@@ -119,7 +119,7 @@
 				<key>BaseSkip</key>
 				<integer>0</integer>
 				<key>Comment</key>
-				<string>Battery and Sleep on low battery(15): M(_BST) to XBST</string>
+				<string>Battery and Sleep on low battery(15): M(_BST) to ZBST</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -133,7 +133,7 @@
 				<key>OemTableId</key>
 				<data></data>
 				<key>Replace</key>
-				<data>WEJTVA==</data>
+				<data>WkJTVA==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -239,13 +239,13 @@
 				<key>BaseSkip</key>
 				<integer>0</integer>
 				<key>Comment</key>
-				<string>Battery - Replacement notification: N(BIFP) to BFXX</string>
+				<string>Battery - Replacement notification: M(_BIF) to ZBIF</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>CEJJRlA=</data>
+				<data>X0JJRg==</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
@@ -253,7 +253,7 @@
 				<key>OemTableId</key>
 				<data></data>
 				<key>Replace</key>
-				<data>CEJGWFg=</data>
+				<data>WkJJRg==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -269,13 +269,13 @@
 				<key>BaseSkip</key>
 				<integer>0</integer>
 				<key>Comment</key>
-				<string>Battery - Replacement notification: N(BIXP) to BXXX</string>
+				<string>Battery - Replacement notification: M(_BIX) to ZBIX</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>CEJJWFA=</data>
+				<data>X0JJWA==</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
@@ -283,7 +283,7 @@
 				<key>OemTableId</key>
 				<data></data>
 				<key>Replace</key>
-				<data>CEJYWFg=</data>
+				<data>WkJJWA==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>

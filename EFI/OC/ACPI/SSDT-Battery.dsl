@@ -1,8 +1,8 @@
 /*
  * Patches methods to support battery reading.
  * It also supports two other things:
- * 1. Sleep at custom battery level. Currently set to 15 percent.
- * 2. Replace invalid serial number to 1710 to kill battery replacement notification. This may be fixed in future VirtualSMC release: https://github.com/acidanthera/bugtracker/issues/1841.
+ * 1. All OS: Sleep at custom battery level. Currently set to 15 percent. This should work on all OS; however, this laptop does not seem to update ACPI cache for Windows. See https://github.com/acidanthera/bugtracker/issues/1294.
+ * 2. macOS: Replace invalid serial number to 1710 to kill battery replacement notification. This may be fixed in future VirtualSMC release: https://github.com/acidanthera/bugtracker/issues/1841.
  *
  * config.plist ACPI/Patch
  * Comment: Battery: M(SBIX) to XBIX
@@ -10,7 +10,7 @@
  * Find:    53 42 49 58 08
  * Replace: 58 42 49 58 08
  *
- * Comment: Battery and Sleep on low battery(15): M(_BST) to XBST
+ * Comment: Battery and Sleep on low battery(15): M(_BST) to ZBST
  * Count:   1
  * Find:    5F 42 53 54
  * Replace: 58 42 53 54
@@ -30,25 +30,26 @@
  * Find:    5F 57 41 4B 09 50 38
  * Replace: 5A 57 41 4B 09 50 38
  *
- * Comment: Battery - Replacement notification: N(BIFP) to BFXX
+ * Comment: Battery - Replacement notification: M(_BIF) to ZBIF
  * Count:   1
- * Find:    08 42 49 46 50
- * Replace: 08 42 46 58 58
+ * Find:    5F 42 49 46
+ * Replace: 5A 42 49 46
  *
- * Comment: Battery - Replacement notification: N(BIXP) to BXXX
+ * Comment: Battery - Replacement notification: M(_BIX) to ZBIX
  * Count:   1
- * Find:    08 42 49 58 50
- * Replace: 08 42 58 58 58
+ * Find:    5F 42 49 58
+ * Replace: 5A 42 49 58
  */
 DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
 {
     External (_PR_.CFGD, FieldUnitObj)
     External (_PR_.CPU0._PPC, IntObj)
     External (_SB_.BAT1, DeviceObj)
+    External (_SB_.BAT1.BIFP, PkgObj)
+    External (_SB_.BAT1.BIXP, PkgObj)
     External (_SB_.BAT1.SLBV, IntObj)
     External (_SB_.BAT1.STAT, PkgObj)
     External (_SB_.BAT1.XBIX, MethodObj)    // 0 Arguments
-    External (_SB_.BAT1.XBST, MethodObj)    // 0 Arguments
     External (_SB_.BAT1.XBTP, MethodObj)    // 1 Arguments
     External (_SB_.IAOE.IBT1, UnknownObj)
     External (_SB_.IAOE.ITMR, UnknownObj)
@@ -63,6 +64,8 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
     External (_SB_.PCI0.LPCB.H_EC, DeviceObj)
     External (_SB_.PCI0.LPCB.H_EC.ABT1, FieldUnitObj)
     External (_SB_.PCI0.LPCB.H_EC.ACEX, FieldUnitObj)
+    External (_SB_.PCI0.LPCB.H_EC.B1PV, FieldUnitObj)
+    External (_SB_.PCI0.LPCB.H_EC.B1RR, FieldUnitObj)
     External (_SB_.PCI0.LPCB.H_EC.DCBE, FieldUnitObj)
     External (_SB_.PCI0.LPCB.H_EC.LSTE, FieldUnitObj)
     External (_SB_.PCI0.LPCB.H_EC.TIST, FieldUnitObj)
@@ -90,6 +93,8 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
     External (_SB_.TPM_.PTS_, MethodObj)    // 1 Arguments
     External (ADBG, MethodObj)    // 1 Arguments
     External (BFCC, FieldUnitObj)
+    External (BIFP, IntObj)
+    External (BIXP, IntObj)
     External (CCRN, MethodObj)    // 0 Arguments
     External (COPC, FieldUnitObj)
     External (CPRN, MethodObj)    // 0 Arguments
@@ -191,71 +196,71 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 = GSSW (0x82, 0xB0)
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BIFP [One] = 0xFFFFFFFF
-                        BIXP [0x02] = 0xFFFFFFFF
+                        \_SB.BAT1.BFXX [One] = 0xFFFFFFFF
+                        BXXX [0x02] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BIFP [One] = Local0
-                        BIXP [0x02] = Local0
+                        \_SB.BAT1.BFXX [One] = Local0
+                        BXXX [0x02] = Local0
                     }
 
                     Local0 = GSSW (0x82, 0xB2)
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BIFP [0x02] = 0xFFFFFFFF
-                        BIXP [0x03] = 0xFFFFFFFF
+                        \_SB.BAT1.BFXX [0x02] = 0xFFFFFFFF
+                        BXXX [0x03] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BIFP [0x02] = Local0
-                        BIXP [0x03] = Local0
+                        \_SB.BAT1.BFXX [0x02] = Local0
+                        BXXX [0x03] = Local0
                     }
 
                     Local0 = GSSW (0x82, 0xB4)
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BIFP [0x04] = 0xFFFFFFFF
-                        BIXP [0x05] = 0xFFFFFFFF
+                        \_SB.BAT1.BFXX [0x04] = 0xFFFFFFFF
+                        BXXX [0x05] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BIFP [0x04] = Local0
-                        BIXP [0x05] = Local0
+                        \_SB.BAT1.BFXX [0x04] = Local0
+                        BXXX [0x05] = Local0
                     }
 
                     Local0 = GSSW (0x82, 0xB6)
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BIFP [0x05] = Zero
-                        BIXP [0x06] = Zero
-                        \_SB.BAT1.BIFP [0x06] = Zero
-                        BIXP [0x07] = Zero
+                        \_SB.BAT1.BFXX [0x05] = Zero
+                        BXXX [0x06] = Zero
+                        \_SB.BAT1.BFXX [0x06] = Zero
+                        BXXX [0x07] = Zero
                     }
                     Else
                     {
-                        \_SB.BAT1.BIFP [0x05] = Local0
-                        BIXP [0x06] = Local0
-                        \_SB.BAT1.BIFP [0x06] = Local0
-                        BIXP [0x07] = Local0
+                        \_SB.BAT1.BFXX [0x05] = Local0
+                        BXXX [0x06] = Local0
+                        \_SB.BAT1.BFXX [0x06] = Local0
+                        BXXX [0x07] = Local0
                     }
 
                     If ((RELT == 0xBA))
                     {
-                        \_SB.BAT1.BIFP [0x05] = Zero
-                        BIXP [0x06] = Zero
-                        \_SB.BAT1.BIFP [0x06] = Zero
-                        BIXP [0x07] = Zero
+                        \_SB.BAT1.BFXX [0x05] = Zero
+                        BXXX [0x06] = Zero
+                        \_SB.BAT1.BFXX [0x06] = Zero
+                        BXXX [0x07] = Zero
                     }
 
                     Local0 = GSSW (0x82, 0xD0)
                     If ((Local0 == 0xFFFF))
                     {
-                        BIXP [0x08] = Zero
+                        BXXX [0x08] = Zero
                     }
                     Else
                     {
-                        BIXP [0x08] = Local0
+                        BXXX [0x08] = Local0
                     }
                 }
                 Else
@@ -270,13 +275,13 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BIFP [One] = 0xFFFFFFFF
-                        BIXP [0x02] = 0xFFFFFFFF
+                        \_SB.BAT1.BFXX [One] = 0xFFFFFFFF
+                        BXXX [0x02] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BIFP [One] = Local0
-                        BIXP [0x02] = Local0
+                        \_SB.BAT1.BFXX [One] = Local0
+                        BXXX [0x02] = Local0
                     }
 
                     Local0 = Local3
@@ -288,13 +293,13 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BIFP [0x02] = 0xFFFFFFFF
-                        BIXP [0x03] = 0xFFFFFFFF
+                        \_SB.BAT1.BFXX [0x02] = 0xFFFFFFFF
+                        BXXX [0x03] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BIFP [0x02] = Local0
-                        BIXP [0x03] = Local0
+                        \_SB.BAT1.BFXX [0x02] = Local0
+                        BXXX [0x03] = Local0
                     }
 
                     Local0 = Local4
@@ -305,13 +310,13 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BIFP [0x04] = 0xFFFFFFFF
-                        BIXP [0x05] = 0xFFFFFFFF
+                        \_SB.BAT1.BFXX [0x04] = 0xFFFFFFFF
+                        BXXX [0x05] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BIFP [0x04] = Local0
-                        BIXP [0x05] = Local0
+                        \_SB.BAT1.BFXX [0x04] = Local0
+                        BXXX [0x05] = Local0
                     }
 
                     Local0 = Local4
@@ -323,25 +328,25 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BIFP [0x05] = 0xFFFFFFFF
-                        BIXP [0x06] = 0xFFFFFFFF
-                        \_SB.BAT1.BIFP [0x06] = 0xFFFFFFFF
-                        BIXP [0x07] = 0xFFFFFFFF
+                        \_SB.BAT1.BFXX [0x05] = 0xFFFFFFFF
+                        BXXX [0x06] = 0xFFFFFFFF
+                        \_SB.BAT1.BFXX [0x06] = 0xFFFFFFFF
+                        BXXX [0x07] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BIFP [0x05] = Local0
-                        BIXP [0x06] = Local0
-                        \_SB.BAT1.BIFP [0x06] = Local0
-                        BIXP [0x07] = Local0
+                        \_SB.BAT1.BFXX [0x05] = Local0
+                        BXXX [0x06] = Local0
+                        \_SB.BAT1.BFXX [0x06] = Local0
+                        BXXX [0x07] = Local0
                     }
 
                     If ((RELT == 0xBA))
                     {
-                        \_SB.BAT1.BIFP [0x05] = Zero
-                        BIXP [0x06] = Zero
-                        \_SB.BAT1.BIFP [0x06] = Zero
-                        BIXP [0x07] = Zero
+                        \_SB.BAT1.BFXX [0x05] = Zero
+                        BXXX [0x06] = Zero
+                        \_SB.BAT1.BFXX [0x06] = Zero
+                        BXXX [0x07] = Zero
                     }
 
                     Local0 = R16B (^^PCI0.LPCB.H_EC.YLC0, ^^PCI0.LPCB.H_EC.YLC1)
@@ -352,15 +357,15 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        BIXP [0x08] = Zero
+                        BXXX [0x08] = Zero
                     }
                     Else
                     {
-                        BIXP [0x08] = Local0
+                        BXXX [0x08] = Local0
                     }
                 }
 
-                Return (\_SB.BAT1.BIFP) /* External reference */
+                Return (\_SB.BAT1.BFXX)
             }
             Else
             {
@@ -368,159 +373,201 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
             }
         }
 
-        Method (_BST, 0, Serialized)  // _BST: Battery Status
+        Method (_BIF, 0, Serialized)  // _BIF: Battery Information
         {
+            SBIX ()
             If (_OSI ("Darwin"))
             {
-                If ((ECON == Zero))
-                {
-                    Local0 = GSSB (0x81, 0x84)
-                    If (((Local0 != Zero) && (Local0 != 0x05)))
-                    {
-                        If ((PWRS == One))
-                        {
-                            Local0 = 0x02
-                        }
-                        Else
-                        {
-                            Local0 = One
-                        }
-                    }
-
-                    \_SB.BAT1.STAT [Zero] = Local0
-                    Local0 = GSSW (0x82, 0xA4)
-                    If ((Local0 == 0xFFFF))
-                    {
-                        \_SB.BAT1.STAT [One] = 0xFFFFFFFF
-                    }
-                    Else
-                    {
-                        If ((Local0 >= 0x8000))
-                        {
-                            Local0 ^= 0xFFFF
-                            Local0++
-                        }
-
-                        \_SB.BAT1.STAT [One] = Local0
-                    }
-
-                    Local0 = GSSW (0x82, 0xA2)
-                    If ((Local0 == 0xFFFF))
-                    {
-                        \_SB.BAT1.STAT [0x02] = 0xFFFFFFFF
-                    }
-                    Else
-                    {
-                        \_SB.BAT1.STAT [0x02] = Local0
-                    }
-
-                    Local0 = GSSW (0x82, 0xA6)
-                    If ((Local0 == 0xFFFF))
-                    {
-                        \_SB.BAT1.STAT [0x03] = 0xFFFFFFFF
-                    }
-                    Else
-                    {
-                        \_SB.BAT1.STAT [0x03] = Local0
-                    }
-                }
-                Else
-                {
-                    Local3 = R32B (^^PCI0.LPCB.H_EC.R1R0, ^^PCI0.LPCB.H_EC.R1R1, ^^PCI0.LPCB.H_EC.R1R2, ^^PCI0.LPCB.H_EC.R1R3)
-                    Local0 = Local3
-                    Local0 &= 0xFF
-                    If (((Local0 != Zero) && (Local0 != 0x05)))
-                    {
-                        If ((PWRS == One))
-                        {
-                            Local0 = 0x02
-                        }
-                        Else
-                        {
-                            Local0 = One
-                        }
-                    }
-
-                    \_SB.BAT1.STAT [Zero] = Local0
-                    Local0 = Local3
-                    Local0 >>= 0x10
-                    Local0 &= 0xFFFF
-                    Local1 = (Local0 << 0x08)
-                    Local1 &= 0xFF00
-                    Local0 >>= 0x08
-                    Local0 |= Local1
-                    If ((Local0 == 0xFFFF))
-                    {
-                        \_SB.BAT1.STAT [0x02] = 0xFFFFFFFF
-                    }
-                    Else
-                    {
-                        \_SB.BAT1.STAT [0x02] = Local0
-                    }
-
-                    Sleep (0x64)
-                    Local4 = R32B (^^PCI0.LPCB.H_EC.P1V0, ^^PCI0.LPCB.H_EC.P1V1, ^^PCI0.LPCB.H_EC.P1V2, ^^PCI0.LPCB.H_EC.P1V3)
-                    Local0 = Local4
-                    Local0 &= 0xFFFF
-                    Local1 = (Local0 << 0x08)
-                    Local1 &= 0xFF00
-                    Local0 >>= 0x08
-                    Local0 |= Local1
-                    If ((Local0 == 0xFFFF))
-                    {
-                        \_SB.BAT1.STAT [One] = 0xFFFFFFFF
-                    }
-                    Else
-                    {
-                        If ((Local0 >= 0x8000))
-                        {
-                            Local0 ^= 0xFFFF
-                            Local0++
-                        }
-
-                        \_SB.BAT1.STAT [One] = Local0
-                    }
-
-                    Local0 = Local4
-                    Local0 >>= 0x10
-                    Local0 &= 0xFFFF
-                    Local1 = (Local0 << 0x08)
-                    Local1 &= 0xFF00
-                    Local0 >>= 0x08
-                    Local0 |= Local1
-                    If ((Local0 == 0xFFFF))
-                    {
-                        \_SB.BAT1.STAT [0x03] = 0xFFFFFFFF
-                    }
-                    Else
-                    {
-                        \_SB.BAT1.STAT [0x03] = Local0
-                    }
-                }
-
-                // SOLB
-                If (CondRefOf (\_SB.BAT1.SLBV))
-                {
-                    If (\_SB.BAT1.SLBV = One)
-                    {
-                        If ((DerefOf (\_SB.BAT1.STAT [Zero]) & One))
-                        {
-                            Divide (DerefOf (\_SB.BAT1.BIXP [0x02]), 0x14, Local0, Local1)
-                            Local1 *= 0x03
-                            If ((DerefOf (\_SB.BAT1.STAT [0x02]) < Local1))
-                            {
-                                Notify (\_SB.SLPB, 0x80) // Status Change
-                            }
-                        }
-                    }
-                }
-
-                Return (\_SB.BAT1.STAT) /* External reference */
+                Return (BFXX) /* \_SB_.BAT1.BFXX */
             }
             Else
             {
-                Return (\_SB.BAT1.XBST ())
+                Return (BIFP) /* External reference */
             }
+        }
+
+        Method (_BIX, 0, Serialized)  // _BIX: Battery Information Extended
+        {
+            SBIX ()
+            If (_OSI ("Darwin"))
+            {
+                Return (BXXX) /* \_SB_.BAT1.BXXX */
+            }
+            Else
+            {
+                Return (BIXP) /* External reference */
+            }
+        }
+
+        Method (_BST, 0, Serialized)  // _BST: Battery Status
+        {
+            If ((ECON == Zero))
+            {
+                Local0 = GSSB (0x81, 0x84)
+                If (((Local0 != Zero) && (Local0 != 0x05)))
+                {
+                    If ((PWRS == One))
+                    {
+                        Local0 = 0x02
+                    }
+                    Else
+                    {
+                        Local0 = One
+                    }
+                }
+
+                \_SB.BAT1.STAT [Zero] = Local0
+                Local0 = GSSW (0x82, 0xA4)
+                If ((Local0 == 0xFFFF))
+                {
+                    \_SB.BAT1.STAT [One] = 0xFFFFFFFF
+                }
+                Else
+                {
+                    If ((Local0 >= 0x8000))
+                    {
+                        Local0 ^= 0xFFFF
+                        Local0++
+                    }
+
+                    \_SB.BAT1.STAT [One] = Local0
+                }
+
+                Local0 = GSSW (0x82, 0xA2)
+                If ((Local0 == 0xFFFF))
+                {
+                    \_SB.BAT1.STAT [0x02] = 0xFFFFFFFF
+                }
+                Else
+                {
+                    \_SB.BAT1.STAT [0x02] = Local0
+                }
+
+                Local0 = GSSW (0x82, 0xA6)
+                If ((Local0 == 0xFFFF))
+                {
+                    \_SB.BAT1.STAT [0x03] = 0xFFFFFFFF
+                }
+                Else
+                {
+                    \_SB.BAT1.STAT [0x03] = Local0
+                }
+            }
+            Else
+            {
+                If (_OSI ("Darwin"))
+                {
+                    Local3 = R32B (^^PCI0.LPCB.H_EC.R1R0, ^^PCI0.LPCB.H_EC.R1R1, ^^PCI0.LPCB.H_EC.R1R2, ^^PCI0.LPCB.H_EC.R1R3)
+                }
+                Else
+                {
+                    Local3 = ^^PCI0.LPCB.H_EC.B1RR /* External reference */
+                }
+
+                Local0 = Local3
+                Local0 &= 0xFF
+                If (((Local0 != Zero) && (Local0 != 0x05)))
+                {
+                    If ((PWRS == One))
+                    {
+                        Local0 = 0x02
+                    }
+                    Else
+                    {
+                        Local0 = One
+                    }
+                }
+
+                \_SB.BAT1.STAT [Zero] = Local0
+                Local0 = Local3
+                Local0 >>= 0x10
+                Local0 &= 0xFFFF
+                Local1 = (Local0 << 0x08)
+                Local1 &= 0xFF00
+                Local0 >>= 0x08
+                Local0 |= Local1
+                If ((Local0 == 0xFFFF))
+                {
+                    \_SB.BAT1.STAT [0x02] = 0xFFFFFFFF
+                }
+                Else
+                {
+                    \_SB.BAT1.STAT [0x02] = Local0
+                }
+
+                Sleep (0x64)
+                If (_OSI ("Darwin"))
+                {
+                    Local4 = R32B (^^PCI0.LPCB.H_EC.P1V0, ^^PCI0.LPCB.H_EC.P1V1, ^^PCI0.LPCB.H_EC.P1V2, ^^PCI0.LPCB.H_EC.P1V3)
+                }
+                Else
+                {
+                    Local4 = ^^PCI0.LPCB.H_EC.B1PV /* External reference */
+                }
+
+                Local0 = Local4
+                Local0 &= 0xFFFF
+                Local1 = (Local0 << 0x08)
+                Local1 &= 0xFF00
+                Local0 >>= 0x08
+                Local0 |= Local1
+                If ((Local0 == 0xFFFF))
+                {
+                    \_SB.BAT1.STAT [One] = 0xFFFFFFFF
+                }
+                Else
+                {
+                    If ((Local0 >= 0x8000))
+                    {
+                        Local0 ^= 0xFFFF
+                        Local0++
+                    }
+
+                    \_SB.BAT1.STAT [One] = Local0
+                }
+
+                Local0 = Local4
+                Local0 >>= 0x10
+                Local0 &= 0xFFFF
+                Local1 = (Local0 << 0x08)
+                Local1 &= 0xFF00
+                Local0 >>= 0x08
+                Local0 |= Local1
+                If ((Local0 == 0xFFFF))
+                {
+                    \_SB.BAT1.STAT [0x03] = 0xFFFFFFFF
+                }
+                Else
+                {
+                    \_SB.BAT1.STAT [0x03] = Local0
+                }
+            }
+
+            If (CondRefOf (\_SB.BAT1.SLBV))
+            {
+                If (\_SB.BAT1.SLBV = One)
+                {
+                    If ((DerefOf (\_SB.BAT1.STAT [Zero]) & One))
+                    {
+                        If (_OSI ("Darwin"))
+                        {
+                            Divide (DerefOf (\_SB.BAT1.BXXX [0x02]), 0x14, Local0, Local1)
+                        }
+                        Else
+                        {
+                            Divide (DerefOf (\_SB.BAT1.BIXP [0x02]), 0x14, Local0, Local1)
+                        }
+
+                        Local1 *= 0x03
+                        If ((DerefOf (\_SB.BAT1.STAT [0x02]) < Local1))
+                        {
+                            Notify (\_SB.SLPB, 0x80) // Status Change
+                        }
+                    }
+                }
+            }
+
+            Return (\_SB.BAT1.STAT) /* External reference */
         }
 
         Method (_BTP, 1, Serialized)  // _BTP: Battery Trip Point
@@ -550,8 +597,8 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                 \_SB.BAT1.XBTP (Arg0)
             }
         }
-        
-        Name (BIFP, Package (0x0D)
+
+        Name (BFXX, Package (0x0D)
         {
             One, 
             0xFFFFFFFF, 
@@ -567,7 +614,7 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
             "LION", 
             "SAMSUNG Electronics"
         })
-        Name (BIXP, Package (0x14)
+        Name (BXXX, Package (0x14)
         {
             Zero, 
             One, 
@@ -643,7 +690,6 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
     {
         If (_OSI ("Darwin"))
         {
-            // Lid wake on wake unconditionally
             If ((0x03 == Arg0))
             {
                 Notify (\_SB.LID0, 0x80) // Status Change
