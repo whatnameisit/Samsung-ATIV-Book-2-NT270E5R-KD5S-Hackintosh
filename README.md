@@ -19,7 +19,7 @@
 ## Not working
 - Apple Airport features: Soldered Wi-Fi / Bluetooth cannot be replaced.
 - DRM contents on Safari: This is limited by non-native IGPU firmware not having Apple keys.
-- Hibernation: It seems even with the right settings hibernation image is stored, but the machine does not turn off.
+- Hibernation: It seems even with the right settings hibernation image is stored, but the machine does not turn off. Resume works after manually powering down the machine.
 
 ## Steps to install
 
