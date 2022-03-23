@@ -29,16 +29,6 @@
  * Count:   1
  * Find:    5F 57 41 4B 09 50 38
  * Replace: 5A 57 41 4B 09 50 38
- *
- * Comment: Battery - Replacement notification: M(_BIF) to ZBIF
- * Count:   1
- * Find:    5F 42 49 46
- * Replace: 5A 42 49 46
- *
- * Comment: Battery - Replacement notification: M(_BIX) to ZBIX
- * Count:   1
- * Find:    5F 42 49 58
- * Replace: 5A 42 49 58
  */
 DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
 {
@@ -93,8 +83,6 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
     External (_SB_.TPM_.PTS_, MethodObj)    // 1 Arguments
     External (ADBG, MethodObj)    // 1 Arguments
     External (BFCC, FieldUnitObj)
-    External (BIFP, IntObj)
-    External (BIXP, IntObj)
     External (CCRN, MethodObj)    // 0 Arguments
     External (COPC, FieldUnitObj)
     External (CPRN, MethodObj)    // 0 Arguments
@@ -187,6 +175,25 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
 
     Scope (_SB.BAT1)
     {
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Name (BSER, Package (0x02)
+            {
+                "", 
+                ""
+            })
+            BSER [Zero] = DerefOf (\_SB.BAT1.BIFP [0x0A])
+            BSER [One] = DerefOf (\_SB.BAT1.BIXP [0x11])
+            If (_OSI ("Darwin"))
+            {
+                BSER [Zero] = "1710"
+                BSER [One] = "1710"
+            }
+
+            \_SB.BAT1.BIFP [0x0A] = DerefOf (BSER [Zero])
+            \_SB.BAT1.BIXP [0x11] = DerefOf (BSER [One])
+        }
+
         Method (SBIX, 0, Serialized)
         {
             If (_OSI ("Darwin"))
@@ -196,71 +203,71 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 = GSSW (0x82, 0xB0)
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BFXX [One] = 0xFFFFFFFF
-                        BXXX [0x02] = 0xFFFFFFFF
+                        \_SB.BAT1.BIFP [One] = 0xFFFFFFFF
+                        \_SB.BAT1.BIXP [0x02] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BFXX [One] = Local0
-                        BXXX [0x02] = Local0
+                        \_SB.BAT1.BIFP [One] = Local0
+                        \_SB.BAT1.BIXP [0x02] = Local0
                     }
 
                     Local0 = GSSW (0x82, 0xB2)
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BFXX [0x02] = 0xFFFFFFFF
-                        BXXX [0x03] = 0xFFFFFFFF
+                        \_SB.BAT1.BIFP [0x02] = 0xFFFFFFFF
+                        \_SB.BAT1.BIXP [0x03] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BFXX [0x02] = Local0
-                        BXXX [0x03] = Local0
+                        \_SB.BAT1.BIFP [0x02] = Local0
+                        \_SB.BAT1.BIXP [0x03] = Local0
                     }
 
                     Local0 = GSSW (0x82, 0xB4)
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BFXX [0x04] = 0xFFFFFFFF
-                        BXXX [0x05] = 0xFFFFFFFF
+                        \_SB.BAT1.BIFP [0x04] = 0xFFFFFFFF
+                        \_SB.BAT1.BIXP [0x05] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BFXX [0x04] = Local0
-                        BXXX [0x05] = Local0
+                        \_SB.BAT1.BIFP [0x04] = Local0
+                        \_SB.BAT1.BIXP [0x05] = Local0
                     }
 
                     Local0 = GSSW (0x82, 0xB6)
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BFXX [0x05] = Zero
-                        BXXX [0x06] = Zero
-                        \_SB.BAT1.BFXX [0x06] = Zero
-                        BXXX [0x07] = Zero
+                        \_SB.BAT1.BIFP [0x05] = Zero
+                        \_SB.BAT1.BIXP [0x06] = Zero
+                        \_SB.BAT1.BIFP [0x06] = Zero
+                        \_SB.BAT1.BIXP [0x07] = Zero
                     }
                     Else
                     {
-                        \_SB.BAT1.BFXX [0x05] = Local0
-                        BXXX [0x06] = Local0
-                        \_SB.BAT1.BFXX [0x06] = Local0
-                        BXXX [0x07] = Local0
+                        \_SB.BAT1.BIFP [0x05] = Local0
+                        \_SB.BAT1.BIXP [0x06] = Local0
+                        \_SB.BAT1.BIFP [0x06] = Local0
+                        \_SB.BAT1.BIXP [0x07] = Local0
                     }
 
                     If ((RELT == 0xBA))
                     {
-                        \_SB.BAT1.BFXX [0x05] = Zero
-                        BXXX [0x06] = Zero
-                        \_SB.BAT1.BFXX [0x06] = Zero
-                        BXXX [0x07] = Zero
+                        \_SB.BAT1.BIFP [0x05] = Zero
+                        \_SB.BAT1.BIXP [0x06] = Zero
+                        \_SB.BAT1.BIFP [0x06] = Zero
+                        \_SB.BAT1.BIXP [0x07] = Zero
                     }
 
                     Local0 = GSSW (0x82, 0xD0)
                     If ((Local0 == 0xFFFF))
                     {
-                        BXXX [0x08] = Zero
+                        \_SB.BAT1.BIXP [0x08] = Zero
                     }
                     Else
                     {
-                        BXXX [0x08] = Local0
+                        \_SB.BAT1.BIXP [0x08] = Local0
                     }
                 }
                 Else
@@ -275,13 +282,13 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BFXX [One] = 0xFFFFFFFF
-                        BXXX [0x02] = 0xFFFFFFFF
+                        \_SB.BAT1.BIFP [One] = 0xFFFFFFFF
+                        \_SB.BAT1.BIXP [0x02] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BFXX [One] = Local0
-                        BXXX [0x02] = Local0
+                        \_SB.BAT1.BIFP [One] = Local0
+                        \_SB.BAT1.BIXP [0x02] = Local0
                     }
 
                     Local0 = Local3
@@ -293,13 +300,13 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BFXX [0x02] = 0xFFFFFFFF
-                        BXXX [0x03] = 0xFFFFFFFF
+                        \_SB.BAT1.BIFP [0x02] = 0xFFFFFFFF
+                        \_SB.BAT1.BIXP [0x03] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BFXX [0x02] = Local0
-                        BXXX [0x03] = Local0
+                        \_SB.BAT1.BIFP [0x02] = Local0
+                        \_SB.BAT1.BIXP [0x03] = Local0
                     }
 
                     Local0 = Local4
@@ -310,13 +317,13 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BFXX [0x04] = 0xFFFFFFFF
-                        BXXX [0x05] = 0xFFFFFFFF
+                        \_SB.BAT1.BIFP [0x04] = 0xFFFFFFFF
+                        \_SB.BAT1.BIXP [0x05] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BFXX [0x04] = Local0
-                        BXXX [0x05] = Local0
+                        \_SB.BAT1.BIFP [0x04] = Local0
+                        \_SB.BAT1.BIXP [0x05] = Local0
                     }
 
                     Local0 = Local4
@@ -328,25 +335,25 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        \_SB.BAT1.BFXX [0x05] = 0xFFFFFFFF
-                        BXXX [0x06] = 0xFFFFFFFF
-                        \_SB.BAT1.BFXX [0x06] = 0xFFFFFFFF
-                        BXXX [0x07] = 0xFFFFFFFF
+                        \_SB.BAT1.BIFP [0x05] = 0xFFFFFFFF
+                        \_SB.BAT1.BIXP [0x06] = 0xFFFFFFFF
+                        \_SB.BAT1.BIFP [0x06] = 0xFFFFFFFF
+                        \_SB.BAT1.BIXP [0x07] = 0xFFFFFFFF
                     }
                     Else
                     {
-                        \_SB.BAT1.BFXX [0x05] = Local0
-                        BXXX [0x06] = Local0
-                        \_SB.BAT1.BFXX [0x06] = Local0
-                        BXXX [0x07] = Local0
+                        \_SB.BAT1.BIFP [0x05] = Local0
+                        \_SB.BAT1.BIXP [0x06] = Local0
+                        \_SB.BAT1.BIFP [0x06] = Local0
+                        \_SB.BAT1.BIXP [0x07] = Local0
                     }
 
                     If ((RELT == 0xBA))
                     {
-                        \_SB.BAT1.BFXX [0x05] = Zero
-                        BXXX [0x06] = Zero
-                        \_SB.BAT1.BFXX [0x06] = Zero
-                        BXXX [0x07] = Zero
+                        \_SB.BAT1.BIFP [0x05] = Zero
+                        \_SB.BAT1.BIXP [0x06] = Zero
+                        \_SB.BAT1.BIFP [0x06] = Zero
+                        \_SB.BAT1.BIXP [0x07] = Zero
                     }
 
                     Local0 = R16B (^^PCI0.LPCB.H_EC.YLC0, ^^PCI0.LPCB.H_EC.YLC1)
@@ -357,45 +364,19 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                     Local0 |= Local1
                     If ((Local0 == 0xFFFF))
                     {
-                        BXXX [0x08] = Zero
+                        \_SB.BAT1.BIXP [0x08] = Zero
                     }
                     Else
                     {
-                        BXXX [0x08] = Local0
+                        \_SB.BAT1.BIXP [0x08] = Local0
                     }
                 }
 
-                Return (\_SB.BAT1.BFXX)
+                Return (\_SB.BAT1.BIFP)
             }
             Else
             {
                 Return (\_SB.BAT1.XBIX ())
-            }
-        }
-
-        Method (_BIF, 0, Serialized)  // _BIF: Battery Information
-        {
-            SBIX ()
-            If (_OSI ("Darwin"))
-            {
-                Return (BFXX) /* \_SB_.BAT1.BFXX */
-            }
-            Else
-            {
-                Return (BIFP) /* External reference */
-            }
-        }
-
-        Method (_BIX, 0, Serialized)  // _BIX: Battery Information Extended
-        {
-            SBIX ()
-            If (_OSI ("Darwin"))
-            {
-                Return (BXXX) /* \_SB_.BAT1.BXXX */
-            }
-            Else
-            {
-                Return (BIXP) /* External reference */
             }
         }
 
@@ -549,15 +530,7 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                 {
                     If ((DerefOf (\_SB.BAT1.STAT [Zero]) & One))
                     {
-                        If (_OSI ("Darwin"))
-                        {
-                            Divide (DerefOf (\_SB.BAT1.BXXX [0x02]), 0x14, Local0, Local1)
-                        }
-                        Else
-                        {
-                            Divide (DerefOf (\_SB.BAT1.BIXP [0x02]), 0x14, Local0, Local1)
-                        }
-
+                        Divide (DerefOf (\_SB.BAT1.BIXP [0x02]), 0x14, Local0, Local1)
                         Local1 *= 0x03
                         If ((DerefOf (\_SB.BAT1.STAT [0x02]) < Local1))
                         {
@@ -597,46 +570,6 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
                 \_SB.BAT1.XBTP (Arg0)
             }
         }
-
-        Name (BFXX, Package (0x0D)
-        {
-            One, 
-            0xFFFFFFFF, 
-            0xFFFFFFFF, 
-            One, 
-            0xFFFFFFFF, 
-            0x03, 
-            0x0A, 
-            One, 
-            One, 
-            "SR Real Battery", 
-            "1710", 
-            "LION", 
-            "SAMSUNG Electronics"
-        })
-        Name (BXXX, Package (0x14)
-        {
-            Zero, 
-            One, 
-            0xFFFFFFFF, 
-            0xFFFFFFFF, 
-            One, 
-            0xFFFFFFFF, 
-            0x03, 
-            0x0A, 
-            Zero, 
-            0x00017318, 
-            0xFFFFFFFF, 
-            0xFFFFFFFF, 
-            0x88B8, 
-            0x61A8, 
-            One, 
-            One, 
-            "SR Real Battery", 
-            "1710", 
-            "LION", 
-            "SAMSUNG Electronics"
-        })
     }
 
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
