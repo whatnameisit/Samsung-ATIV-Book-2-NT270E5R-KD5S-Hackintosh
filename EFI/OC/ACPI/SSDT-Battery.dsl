@@ -179,19 +179,19 @@ DefinitionBlock ("", "SSDT", 2, "what", "BATT", 0x00000000)
         {
             Name (BSER, Package (0x02)
             {
-                Zero, 
-                Zero
+                "", 
+                ""
             })
-            BSER [Zero] = \_SB.BAT1.BIFP [0x0A]
-            BSER [One] = \_SB.BAT1.BIXP [0x11]
+            BSER [Zero] = DerefOf (\_SB.BAT1.BIFP [0x0A])
+            BSER [One] = DerefOf (\_SB.BAT1.BIXP [0x11])
             If (_OSI ("Darwin"))
             {
                 BSER [Zero] = "1710"
                 BSER [One] = "1710"
             }
 
-            \_SB.BAT1.BIFP [0x0A] = BSER [Zero]
-            \_SB.BAT1.BIXP [0x11] = BSER [One]
+            \_SB.BAT1.BIFP [0x0A] = DerefOf (BSER [Zero])
+            \_SB.BAT1.BIXP [0x11] = DerefOf (BSER [One])
         }
 
         Method (SBIX, 0, Serialized)
