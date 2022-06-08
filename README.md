@@ -25,28 +25,16 @@
 
 1. Read [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf).
 2. Read [Dortania guides](https://dortania.github.io/getting-started/).
-3. Prepare USB drive with macOS installer mounted on it.
-4. Download this repository and copy and paste the OC and BOOT folders to USB EFI partition.
-5. Boot into USB and select macOS installer and install.
-6. Mount EFI and copy USB EFI to the system EFI partition.
-7. Replace the numbers in SMBIOS.
 
 ## Wi-Fi / Bluetooth with AR9565 / AR3012 - Big Sur and below only
 
-1. Go to https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/.
-2. Download HS80211Family.kext and AirportAtheros40-9565.kext.
-3. Place HS80211Family.kext and the one extracted from AirportAtheros40-9565.kext inside /EFI/OC/Kexts folder
-- Note 1: HS80211Family.kext causes panic on macOS Monterey. Use a USB Wi-Fi dongle or Ethernet instead.
-- Note 2: Atheros Bluetooth development has not continued since Monterey. Use a USB Bluetooth dongle instead.
+See https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/.
+See https://github.com/lynxnu/AthBluetoothFirmware.
 
-## Wi-Fi / Bluetooth with USB Wi-Fi / Bluetooth dongle
+## Wi-Fi / Bluetooth with USB Wi-Fi / Bluetooth dongle - Monterey
 
 See [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for compatible Wi-Fi dongle and installation.
 See [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) for compatible Bluetooth dongle and installation.
-
-## Future Updates
-
-Apple may drop MacBookPro11,4 in macOS 13 or later as they no longer manufacture new intel product lines. Until final intel Mac models are supported, update MLB in config accordingly to bypass OS upgrade requirement.
 
 ## Acknowledgment
 

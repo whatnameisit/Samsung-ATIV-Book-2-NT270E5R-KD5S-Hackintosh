@@ -97,7 +97,7 @@
 			<key>locationID</key>
 			<integer>487587840</integer>
 			<key>model</key>
-			<string>MacBookAir11,4</string>
+			<string>MacBookPro11,4</string>
 		</dict>
 		<key>MacBookAir11,4-EHC1</key>
 		<dict>
@@ -115,14 +115,6 @@
 			<string>AppleUSBEHCIPCI</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
-				<key>kUSBSleepPortCurrentLimit</key>
-				<integer>2100</integer>
-				<key>kUSBSleepPowerSupply</key>
-				<integer>5100</integer>
-				<key>kUSBWakePortCurrentLimit</key>
-				<integer>2100</integer>
-				<key>kUSBWakePowerSupply</key>
-				<integer>5100</integer>
 				<key>port-count</key>
 				<data>AQAAAA==</data>
 				<key>ports</key>
@@ -139,7 +131,7 @@
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>MacBookAir11,4</string>
+			<string>MacBookPro11,4</string>
 		</dict>
 	</dict>
 	<key>OSBundleRequired</key>
